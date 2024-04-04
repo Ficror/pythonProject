@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <title>Тег table</title>
+    <style>
+        table {
+         width: 100%; /* Ширина таблицы */
+         background: white; /* Цвет фона таблицы */
+         color: white; /* Цвет текста */
+         border-spacing: 1px; /* Расстояние между ячейками */
+        }
+        td, th {
+         background: maroon; /* Цвет фона ячеек */
+         padding: 5px; /* Поля вокруг текста */
+        }
+    </style>
+</head>
+<body>
+<h4>И на Марсе будут яблони цвести!</h4>
+{% for item in jobs%}
+<h5>Action#{{item.id}}</h5><nobr>
+<table>
+    <tr>
+        <th style="width:35%">Title of activity</th>
+        <th style="width:25%">Team leader</th>
+        <th style="width:15%">Duration</th>
+        <th style="width:25%">List of collaborations</th>
+    </tr>
+    <tr>
+        <td>{{item.job}}</td>
+        <td>{{item.user.name}} {{item.user.surname}}</td>
+        <td>{{item.work_size}} hours</td>
+        <td>{{item.collaborators}}</td>
+    </tr>
+</table>
+</body>
+{% endfor %}
+{% endblock %}
