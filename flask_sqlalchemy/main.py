@@ -17,7 +17,7 @@ def main():
 def index():
     db_sess = db_session.create_session()
     jobs = db_sess.query(Catalog).all()
-    return render_template("index.html", jobs=jobs)
+    return render_template("index.html")
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -36,10 +36,8 @@ def reqister():
         user = User(
             name=form.name.data,
             email=form.email.data,
-            age=form.age.data,
-            position=form.position.data,
+            address=form.address.data,
             surname=form.surname.data,
-            speciality=form.speciality.data,
         )
         user.set_password(form.password.data)
         db_sess.add(user)
