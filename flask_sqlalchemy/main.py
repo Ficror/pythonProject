@@ -27,7 +27,7 @@ def main():
 def index():
     db_sess = db_session.create_session()
     jobs = db_sess.query(Catalog).all()
-    return render_template("base.html", title="Start page")
+    return render_template("index.html", title="Start page")
 
 
 @app.route('/login', methods=['GET', 'POST'])

@@ -9,23 +9,27 @@
           crossorigin="anonymous">
     <title>{{title}}</title>
 </head>
-<body>
+<body style="background: #E6E6FF;
+left: 1px;">
 <header>
     <nav class="navbar navbar-light bg-light">
         <h1 class="navbar-brand" href="#">Интеренет магазин</h1>
         {% if current_user.is_authenticated %}
-    <a class="btn btn-success" href="/logout">Выйти</a>
-{% else %}
-    <p>
-        <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
-        <a class="btn btn-success" href="/login">Войти</a>
-    </p>
-{% endif %}
+        <a class="btn btn-success" href="/logout">Выйти</a>
+        {% else %}
+        <p>
+            <a class="btn btn-primary" href="/register">Зарегистрироваться</a>
+            <a class="btn btn-success" href="/login">Войти</a>
+        </p>
+        {% endif %}
     </nav>
 </header>
 <!-- Begin page content -->
-<main role="main" class="container">
+<div id="content">
+    <div id="left">
+        {% block catalog %}{% endblock %}
+    </div>
     {% block content %}{% endblock %}
-</main>
+
 </body>
 </html>
