@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 
 {% block catalog %}
-<form action="http://127.0.0.1:5000/catalog/clothes" style="color: 0000ff;">
-    <input type="submit" value="одежда" />
+<style>
+.my_button {
+    width: 100%;
+    height: 5%;
+}
+</style>
+<form action="http://127.0.0.1:5000/clothes">
+    <input type="submit" value="одежда" class="my_button"/>
 </form>
-<form action="http://127.0.0.1:5000/catalog/shoes" style="color: 0000ff;">
-    <input type="submit" value="shoes" />
+<form action="http://127.0.0.1:5000/shoes">
+    <input type="submit" value="Обувь" class="my_button"/>
 </form>
-<form action="http://127.0.0.1:5000/catalog/sportfit" style="color: 0000ff;">
-    <input type="submit" value="Спортивная одежда" />
+<form action="http://127.0.0.1:5000/sportfit">
+    <input type="submit" value="Спортивная одежда" class="my_button"/>
 </form>
-<form action="http://127.0.0.1:5000/catalog/acsessories" style="color: 0000ff;">
-    <input type="submit" value="аксессуары" />
+<form action="http://127.0.0.1:5000/acsessories">
+    <input type="submit" value="Аксессуары" class="my_button"/>
 </form>
 {% endblock %}

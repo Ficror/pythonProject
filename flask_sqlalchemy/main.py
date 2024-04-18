@@ -44,6 +44,7 @@ def login():
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
 
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -76,9 +77,11 @@ def reqister():
         return redirect('/login')
     return render_template('register.html', title='Регистрация', form=form)
 
-@app.route('/catalog/<product_name>', methods=['GET', 'POST'])
+
+@app.route('/<product_name>', methods=['GET', 'POST'])
 def products(product_name):
-    return render_template("product_page.html", catalog=product_name)
+    return render_template("product_page.html", catalog1=product_name)
+
 
 if __name__ == '__main__':
     main()
