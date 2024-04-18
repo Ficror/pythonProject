@@ -7,6 +7,7 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" media="screen">
     <title>{{title}}</title>
 </head>
 <body style="background: #E6E6FF;
@@ -29,7 +30,9 @@ left: 1px;">
     <div id="left">
         {% block catalog %}{% endblock %}
     </div>
-    {% block content %}{% endblock %}
-
+    <div id="right">
+        {% block content %}{% endblock %}
+    </div>
+</div>
 </body>
 </html>

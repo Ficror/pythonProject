@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% block content %}
+<h1>{{catalog}}</h1>
+{% endblock %}
 {% block catalog %}
 <form action="http://127.0.0.1:5000/catalog/clothes" style="color: 0000ff;">
     <input type="submit" value="одежда" />

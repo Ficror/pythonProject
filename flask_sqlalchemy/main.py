@@ -76,6 +76,9 @@ def reqister():
         return redirect('/login')
     return render_template('register.html', title='Регистрация', form=form)
 
+@app.route('/catalog/<product_name>', methods=['GET', 'POST'])
+def products(product_name):
+    return render_template("product_page.html", catalog=product_name)
 
 if __name__ == '__main__':
     main()
