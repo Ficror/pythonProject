@@ -80,7 +80,9 @@ def reqister():
 
 @app.route('/<product_name>', methods=['GET', 'POST'])
 def products(product_name):
-    return render_template("product_page.html", catalog1=product_name)
+    db_sess = db_session.create_session()
+    names = db_sess.query(Catalog).filter(Catalog.type == product_name)
+    return render_template("product_page.html", names=names)
 
 
 if __name__ == '__main__':

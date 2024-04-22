@@ -10,5 +10,5 @@ class Catalog(SqlAlchemyBase):
     price = sqlalchemy.Column(sqlalchemy.Integer)
     size = sqlalchemy.Column(sqlalchemy.String)
     in_basket = sqlalchemy.Column(sqlalchemy.Boolean, default=True)
-    in_favorite = sqlalchemy.Column(sqlalchemy.Boolean, default=True)
+    img = sqlalchemy.Column(sqlalchemy.String)
     type = sqlalchemy.Column(sqlalchemy.String)
