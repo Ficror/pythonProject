@@ -85,5 +85,13 @@ def products(product_name):
     return render_template("product_page.html", names=names)
 
 
+@app.route('/in_basket/<product>')
+def in_basket(product):
+    db_sess = db_session.create_session()
+    name = db_sess.query(Catalog).filter(Catalog.id == product).first()
+    name.in_basket = 1
+    db_sess.commit()
+    return redirect('/in_basket/<product>')
+
 if __name__ == '__main__':
     main()
