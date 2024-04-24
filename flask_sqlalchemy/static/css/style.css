@@ -58,7 +58,6 @@
 .card_price{
   content: "₽";
   margin-left: 4px;
-  position: relative;
 }
 
 .card_price{
@@ -68,7 +67,7 @@
 }
 
 .card_price::before {
-  content: "Цена:";
+  content: "Цена: ";
   font-weight: 400;
   font-size: 13px;
   color: #bfbfbf;
@@ -109,8 +108,14 @@
 }
 #cards {
   padding-left: 15%;
-  width: 85%;
+  width: 80%;
   height: 100%;
   column-gap: 30px; /* Отступ между колонками */
   row-gap: 40px; /* Отступ между рядами */
+}
+
+.right {
+  padding-left: 95%;
+  width:10%;
+  height: 100%;
 }

@@ -22,9 +22,11 @@
       {{item.name}}
     </a>
     <!-- Кнопка добавить в корзину -->
-    <button class="card_add" href="/in_basket/<{{item.id}}>">В корзину</button>
+    <form action="/in_basket/{{item.id}}">
+    <input type="submit" value="В корзину" class="card_add"/>
+</form>
+
   </div>
 </div>
 {% endfor %}
 {% endblock %}
-

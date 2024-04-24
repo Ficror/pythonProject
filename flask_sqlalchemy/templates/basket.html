@@ -4,24 +4,47 @@
 {% for item in names %}
 
 <div class="card">
-  <!-- Верхняя часть -->
-  <div class="card_top">
-    <!-- Изображение-ссылка товара -->
-    <div href="#" class="card_image">
-      <img
-        src="{{item.img}}"
-      />
+    <!-- Верхняя часть -->
+    <div class="card_top">
+        <!-- Изображение-ссылка товара -->
+        <div href="#" class="card_image">
+            <img
+                    src="{{item.img}}"
+            />
+        </div>
     </div>
-  </div>
-  <div class="card_bottom">
-    <div class="card_prices">
-      <div class="card_price card_price">{{item.price}}</div>
+    <div class="card_bottom">
+        <div class="card_prices">
+            <div class="card_price card_price">{{item.price}}</div>
+        </div>
+        <!-- Ссылка-название товара -->
+        <a href="#" class="card_title">
+            {{item.name}}
+        </a>
+        <form action="/not_in_basket/{{item.id}}">
+            <input type="submit" value="Удалить из корзины" class="card_add"/>
+        </form>
     </div>
-    <!-- Ссылка-название товара -->
-    <a href="#" class="card_title">
-      {{item.name}}
-    </a>
-  </div>
 </div>
 {% endfor %}
+{% if current_user.is_authenticated%}
+<div class="right">
+    <h5>Итого: {{summ}} ₽</h5>
+    <a class="btn btn-success" href="/order_good">Оформить заказ</a>
+</div>
+<div class="cards">
+    <h1>{{message1}}</h1>
+    <h6>{{message2}}</h6>
+</div>
+
+{% else %}
+<div class="right">
+    <h5>Итого: {{summ}} ₽</h5>
+    <a class="btn btn-success" href="/order">Оформить заказ</a>
+</div>
+<div class="cards">
+    <h1>{{message}}</h1>
+</div>
+{% endif %}
 {% endblock %}
+

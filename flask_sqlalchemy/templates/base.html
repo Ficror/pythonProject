@@ -15,41 +15,50 @@ left: 1px;">
 <header>
     <nav class="navbar navbar-light bg-light">
         <h1 class="navbar-brand" href="#">Интеренет магазин</h1>
-        {% if current_user.is_authenticated %}
-        <a class="btn btn-success" href="/logout">Выйти</a>
-        {% else %}
+        {% if current_user.is_authenticated == False %}
         <p>
             <a class="btn btn-primary" href="/register">Зарегистрироваться</a>
             <a class="btn btn-success" href="/login">Войти</a>
             <a class="btn btn-secondary" href="/basket">Корзина</a>
         </p>
+        {% elif flag == True %}
+        <p>
+            <a class="btn btn-success" href="/logout">Выйти</a>
+        </p>
+        {% else %}
+        <p>
+            <a class="btn btn-success" href="/logout">Выйти</a>
+            <a class="btn btn-secondary" href="/basket">Корзина</a>
+        </p>
         {% endif %}
+
     </nav>
 </header>
 <!-- Begin page content -->
 <div id="content">
     <div id="left">
-{% block catalog %}
-<style>
-.my_button {
-    width: 100%;
-    height: 5%;
-}
-</style>
-<form action="http://127.0.0.1:5000/clothes">
-    <input type="submit" value="Одежда" class="my_button"/>
-</form>
-<form action="http://127.0.0.1:5000/shoes">
-    <input type="submit" value="Обувь" class="my_button"/>
-</form>
-<form action="http://127.0.0.1:5000/sportfit">
-    <input type="submit" value="Спортивная одежда" class="my_button"/>
-</form>
-<form action="http://127.0.0.1:5000/acsessories">
-    <input type="submit" value="Аксессуары"  class="my_button"/>
-</form>
-
-{% endblock %}
+        {% block catalog %}
+        <style>
+            .my_button {
+                width: 100%;
+                height: 5%;
+            }
+        </style>
+        {% if current_user.email != "admin@gmail.com" %}
+        <form action="http://127.0.0.1:5000/men_clothes">
+            <input type="submit" value="Мужская одежда" class="my_button"/>
+        </form>
+        <form action="http://127.0.0.1:5000/w_clothes">
+            <input type="submit" value="Женская одежда" class="my_button"/>
+        </form>
+        <form action="http://127.0.0.1:5000/shoes">
+            <input type="submit" value="Обувь" class="my_button"/>
+        </form>
+        <form action="http://127.0.0.1:5000/acsessories">
+            <input type="submit" value="Аксессуары" class="my_button"/>
+        </form>
+        {% endif %}
+        {% endblock %}
     </div>
     <div id="cards">
         {% block content %}{% endblock %}

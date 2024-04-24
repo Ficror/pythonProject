@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Оформленные заказы</h1>
+{% for item in compl_orders%}
+<div class="col-md6 border rounded">
+    <h2> Заказ № {{loop.index}}</h2>
+    <div>
+        Товары: {{item.list_of_product}}
+    </div>
+    <div>
+        {% for item1 in adress%}
+        {% if item1.id == item.username%}
+        Адрес - {{item1.address}}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div>
+        <a href="/news_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
